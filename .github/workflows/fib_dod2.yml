@@ -11,11 +11,6 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-20.04
-    services:
-      registry:
-        image: registry:2
-        ports:
-          - 5000:5000
     steps:
       -
         name: Checkout
