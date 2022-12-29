@@ -55,6 +55,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }} 
-          cache-from: type=registry,ref=localhost:5000/fibcalc_dod2:buildcache
-          cache-to: type=registry,ref=localhost:5000/fibcalc_dod2:buildcache
+          cache-from: localhost:5000/fibcalc_dod2:buildcache
+          cache-to: localhost:5000/fibcalc_dod2:buildcache
 
