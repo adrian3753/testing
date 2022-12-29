@@ -11,6 +11,11 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-20.04
+    services:
+      registry:
+        image: registry:2
+        ports:
+          - 5000:5000
     steps:
       -
         name: Checkout
@@ -50,6 +55,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=local,src=localhost:5000/fibcalc_dod2:buildcache
-          cache-to: type=local,dest=localhost:5000/fibcalc_dod2:buildcache,mode=max
+          cache-from: type=registry,ref=localhost:5000/fibcalc_dod2:buildcache
+          cache-to: type=registry,ref=localhost:5000/fibcalc_dod2:buildcache
 
